@@ -3,6 +3,8 @@
 
 #include "NativeWindowHelper.h"
 
+class JWinDwmapi;
+
 class NativeWindowHelperPrivate
 {
     Q_DECLARE_PUBLIC(NativeWindowHelper)
@@ -10,6 +12,7 @@ class NativeWindowHelperPrivate
 public:
     NativeWindowHelperPrivate();
     virtual ~NativeWindowHelperPrivate();
+
 protected:
     NativeWindowHelper *q_ptr;
 
@@ -21,16 +24,20 @@ public:
 public:
     QMargins draggableMargins() const;
     QMargins maximizedMargins() const;
+
 public:
-    QWindow            *window;
+    QWindow *window;
     NativeWindowTester *tester;
+
 public:
     HWND oldWindow;
 
 public:
     QRect availableGeometry() const;
+
 public:
     qreal scaleFactor;
+    JWinDwmapi *dwmapi_;
 };
 
-#endif // NATIVEWINDOWHELPER_P_H
+#endif  // NATIVEWINDOWHELPER_P_H

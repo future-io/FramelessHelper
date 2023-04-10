@@ -1,4 +1,3 @@
-QT += winextras
 
 INCLUDEPATH += $$PWD
 LIBS += -lUser32
@@ -16,7 +15,9 @@ HEADERS += \
     $$PWD/Kernels/NativeWindowFilter.h \
     $$PWD/Kernels/NativeWindowFilter_p.h \
     $$PWD/Kernels/NativeWindowHelper.h \
-    $$PWD/Kernels/NativeWindowHelper_p.h
+    $$PWD/Kernels/NativeWindowHelper_p.h \
+    $$PWD/Kernels/JWinDwmapi.h
 SOURCES += \
     $$PWD/Kernels/NativeWindowFilter.cpp \
-    $$PWD/Kernels/NativeWindowHelper.cpp
+    $$PWD/Kernels/NativeWindowHelper.cpp \
+    $$PWD/Kernels/JWinDwmapi.cpp

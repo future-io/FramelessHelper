@@ -1,7 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.3
-import QtGraphicalEffects 1.0
 
 Button {
     id: control
@@ -32,15 +31,15 @@ Button {
             source: "qrc:/res/minimize-button1.svg"
         }
 
-        ColorOverlay {
-            id: overLay
-            anchors.fill: img
-            source: img
-            cached: true
-            color: (control.down || control.hovered) ? control.colorHoverd:
-                       (control.active? control.color: control.colorInactive)
+//        ColorOverlay {
+//            id: overLay
+//            anchors.fill: img
+//            source: img
+//            cached: true
+//            color: (control.down || control.hovered) ? control.colorHoverd:
+//                       (control.active? control.color: control.colorInactive)
 
-        }
+//        }
     }
 
     background: Rectangle {

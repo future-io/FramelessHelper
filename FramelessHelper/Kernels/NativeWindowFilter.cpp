@@ -38,7 +38,7 @@ void NativeWindowFilter::deliver(QWindow *window, NativeWindowHelper *helper)
 }
 
 bool NativeWindowFilter::nativeEventFilter(const QByteArray &eventType,
-                                           void *message, long *result)
+                                           void *message, qintptr *result)
 {
     Q_UNUSED(eventType);
 

@@ -1,13 +1,13 @@
 #include <QtGui>
-#include <QtWidgets>
 #include <QtQml>
+#include <QtWidgets>
 
 #include "MainWindow.h"
 #include "WindowFramelessHelper.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    // QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication a(argc, argv);
 

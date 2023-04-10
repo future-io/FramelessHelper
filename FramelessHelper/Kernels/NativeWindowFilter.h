@@ -10,9 +10,9 @@ class NativeWindowFilter : public QAbstractNativeEventFilter
 {
 public:
     static void deliver(QWindow *window, NativeWindowHelper *helper);
+
 protected:
-    bool nativeEventFilter(const QByteArray &eventType,
-                           void *message, long *result) final;
+    bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result) final;
 };
 
-#endif // NATIVEWINDOWFILTER_H
+#endif  // NATIVEWINDOWFILTER_H

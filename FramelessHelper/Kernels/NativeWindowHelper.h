@@ -1,9 +1,9 @@
 #ifndef NATIVEWINDOWHELPER_H
 #define NATIVEWINDOWHELPER_H
 
+#include <QMargins>
 #include <QPoint>
 #include <QWindow>
-#include <QMargins>
 
 class NativeWindowTester
 {
@@ -15,27 +15,35 @@ public:
 };
 
 class NativeWindowHelperPrivate;
+
 class NativeWindowHelper : public QObject
 {
     Q_OBJECT
-    Q_DECLARE_PRIVATE(NativeWindowHelper)
-
 public:
     NativeWindowHelper(QWindow *window, NativeWindowTester *tester);
     explicit NativeWindowHelper(QWindow *window);
     ~NativeWindowHelper();
 
+    bool isCompositionEnabled(void) const;
+    bool extendFrameIntoClientArea(WId winId, const QMargins &margins) const;
+
 public:
-    bool nativeEventFilter(void *msg, long *result);
+    bool nativeEventFilter(void *msg, qintptr *result);
+
 protected:
     bool eventFilter(QObject *obj, QEvent *ev) final;
+
 protected:
     QScopedPointer<NativeWindowHelperPrivate> d_ptr;
 
 signals:
     void scaleFactorChanged(qreal factor);
+
 public:
     qreal scaleFactor() const;
+
+private:
+    Q_DECLARE_PRIVATE(NativeWindowHelper)
 };
 
-#endif // NATIVEWINDOWHELPER_H
+#endif  // NATIVEWINDOWHELPER_H
